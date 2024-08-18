@@ -15,7 +15,14 @@ export class AppController {
     const pageNumber = Number(page);
     const assetsWithPage = await this.appService.getAssets(pageNumber - 1);
     return {
-      assets: assetsWithPage.assets,
+      assetsLeft: assetsWithPage.assets.slice(
+        0,
+        assetsWithPage.assets.length / 2,
+      ),
+      assetsRight: assetsWithPage.assets.slice(
+        assetsWithPage.assets.length / 2,
+        assetsWithPage.assets.length,
+      ),
       nextPage: assetsWithPage.hasNextPage ? pageNumber + 1 : undefined,
       prevPage: pageNumber > 0 ? pageNumber - 1 : undefined,
     };

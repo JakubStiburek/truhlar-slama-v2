@@ -25,12 +25,21 @@
 <div class="header">
   <a href="/">Domů</a>
 </div>
-<div class="assets">
-  {{#each assets}}
-    <div class="assets-item">
-      <img src="{{this.secure_url}}" width="280" alt="example">
-    </div>
-  {{/each}}
+<div class="assets-row">
+  <div class="assets-column">
+    {{#each assetsLeft}}
+      <div class="assets-item">
+        <img src="{{this.secure_url}}" width="280" alt="example">
+      </div>
+    {{/each}}
+  </div>
+  <div class="assets-column">
+    {{#each assetsRight}}
+      <div class="assets-item">
+        <img src="{{this.secure_url}}" width="280" alt="example">
+      </div>
+    {{/each}}
+  </div>
 </div>
 <div class="page-control">
   {{#if nextPage}}

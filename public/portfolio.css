@@ -1,13 +1,7 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: auto; /* Allow the body to grow based on content */
-    min-height: 100%;
-    display: block;
-    font-family: Montserrat, serif;
+body {
     background-color: rgb(193, 182, 68);
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: auto; /* Ensure vertical scrolling */
+    margin: 0;
+    font-family: Montserrat, serif;
 }
 
 a {

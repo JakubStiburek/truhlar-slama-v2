@@ -11,4 +11,8 @@ export interface Asset {
   secure_url: string;
   width: number;
   height: number;
+  context?: {
+    caption?: string;
+    alt?: string;
+  };
 }

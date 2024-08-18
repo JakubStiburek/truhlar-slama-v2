@@ -5,10 +5,20 @@ import { CloudinaryService } from './cloudinary.service';
 export class AppService {
   constructor(private readonly cloudinaryService: CloudinaryService) {}
 
-  async getAssets() {
+  async getAssets(offset: number) {
     const assetList = await this.cloudinaryService.getAssetList();
-    return await this.cloudinaryService.getAssetsByIds(
-      assetList.resources.map((asset) => asset.asset_id),
+    const currentPage = assetList.resources.slice(
+      10 * offset,
+      10 * offset + 10,
     );
+    const assets = await this.cloudinaryService.getAssetsByIds(
+      currentPage.map((asset) => asset.asset_id),
+      offset,
+    );
+
+    return {
+      assets,
+      hasNextPage: assetList.resources.length > 10 * offset + 10,
+    };
   }
 }

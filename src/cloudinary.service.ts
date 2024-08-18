@@ -35,9 +35,11 @@ export class CloudinaryService {
     });
   }
 
+  // todo remove cache logs
   async getAssetList(): Promise<AssetList> {
     const cachedAssetList = await this.cacheManager.get<AssetList>('assetList');
     if (cachedAssetList) {
+      console.log('Using cached asset list');
       return cachedAssetList;
     }
 
@@ -56,17 +58,28 @@ export class CloudinaryService {
     }
   }
 
-  async getAssetsByIds(ids: string[]): Promise<Asset[]> {
+  async getAssetsByIds(ids: string[], offset: number): Promise<Asset[]> {
+    const cacheKey = `assets-${offset}`;
+    const cachedAssets = await this.cacheManager.get<Asset[]>(cacheKey);
+    if (cachedAssets) {
+      console.log('Using cached assets');
+      return cachedAssets;
+    }
+
     try {
-      const assets = await this.cloudinary.api.resources_by_asset_ids(ids, {
-        metadata: true,
+      const rawAssets = await this.cloudinary.api.resources_by_asset_ids(ids, {
+        context: true,
       });
 
-      return assets.resources.map((asset) => ({
+      const assets = rawAssets.resources.map((asset) => ({
         secure_url: asset.secure_url,
         width: asset.width,
         height: asset.height,
       }));
+
+      await this.cacheManager.set(cacheKey, assets);
+
+      return assets;
     } catch (error) {
       console.error(error);
       throw new BadGatewayException();

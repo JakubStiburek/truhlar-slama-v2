@@ -13,25 +13,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" type="text/css" href="index.css" />
+  <link rel="stylesheet" type="text/css" href="portfolio.css" />
   <link rel="stylesheet" type="text/css" href="normalize.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
 </head>
 <body>
 <div class="header">
   <a href="/">Domů</a>
 </div>
-<div>
-  <h1>Portfolio</h1>
-  <div>
-    {{#each assets}}
-      <img src="{{this.secure_url}}" width="500" alt="example">
-    {{/each}}
-    {{#if nextPage}}
-      <a href="/portfolio?page={{nextPage}}">Další</a>
-    {{/if}}
-    {{#if prevPage}}
-      <a href="/portfolio?page={{prevPage}}">Předchozí</a>
-    {{/if}}
-  </div>
+<div class="assets">
+  {{#each assets}}
+    <div class="assets-item">
+      <img src="{{this.secure_url}}" width="280" alt="example">
+    </div>
+  {{/each}}
+</div>
+<div class="page-control">
+  {{#if nextPage}}
+    <a href="/portfolio?page={{nextPage}}">Další</a>
+  {{/if}}
+  {{#if prevPage}}
+    <a href="/portfolio?page={{prevPage}}">Předchozí</a>
+  {{/if}}
 </div>
 </body>
 </html>

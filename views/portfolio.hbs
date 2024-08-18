@@ -42,11 +42,11 @@
   </div>
 </div>
 <div class="page-control">
-  {{#if nextPage}}
-    <a href="/portfolio?page={{nextPage}}">Další</a>
-  {{/if}}
   {{#if prevPage}}
-    <a href="/portfolio?page={{prevPage}}">Předchozí</a>
+    <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
+  {{/if}}
+  {{#if nextPage}}
+    <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
   {{/if}}
 </div>
 </body>

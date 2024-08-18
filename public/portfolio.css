@@ -43,9 +43,22 @@ h1 {
 }
 
 .page-control {
-    width: max-content;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 230px;
     margin: auto;
     padding: 1rem;
+}
+
+.page-button {
+    border: 1px solid #a1612e;
+    background-color: #a1612e;
+    color:rgb(255, 245, 175);
+    border-radius: 5%;
+    padding: 0.25rem;
+    width: 100px;
+    text-align: center;
 }
 
 @media screen and (max-width: 640px) {
@@ -53,15 +66,3 @@ h1 {
         width: 280px;
     }
 }
-
-/*@media screen and (min-width: 321px) and (max-width: 375px) {*/
-
-/*}*/
-
-/*@media screen and (min-width: 376px) and (max-width: 425px) {*/
-
-/*}*/
-
-/*@media screen and (min-width: 769px) {*/
-
-/*}*/

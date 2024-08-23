@@ -25,6 +25,14 @@
 <div class="header">
   <a href="/">Domů</a>
 </div>
+<div class="page-control">
+  {{#if prevPage}}
+    <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
+  {{/if}}
+  {{#if nextPage}}
+    <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
+  {{/if}}
+</div>
 <div class="assets-row">
   <div class="assets-column">
     {{#each assetsLeft}}

@@ -35,11 +35,9 @@ export class CloudinaryService {
     });
   }
 
-  // todo remove cache logs
   async getAssetList(): Promise<AssetList> {
     const cachedAssetList = await this.cacheManager.get<AssetList>('assetList');
     if (cachedAssetList) {
-      console.log('Using cached asset list');
       return cachedAssetList;
     }
 
@@ -53,7 +51,6 @@ export class CloudinaryService {
       await this.cacheManager.set('assetList', assetList, 60 * 60 * 1000);
       return assetList;
     } catch (error) {
-      console.error(error);
       throw new BadGatewayException();
     }
   }

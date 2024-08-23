@@ -1,5 +1,7 @@
 import { Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service';
+import * as process from 'node:process';
+import { formatSeconds } from './utils';
 
 @Controller()
 export class AppController {
@@ -25,6 +27,14 @@ export class AppController {
       ),
       nextPage: assetsWithPage.hasNextPage ? pageNumber + 1 : undefined,
       prevPage: pageNumber > 0 ? pageNumber - 1 : undefined,
+    };
+  }
+
+  @Get('health')
+  health() {
+    return {
+      status: 'UP',
+      uptime: formatSeconds(Math.floor(process.uptime())),
     };
   }
 }

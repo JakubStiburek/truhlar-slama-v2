@@ -51,6 +51,7 @@ export class CloudinaryService {
       await this.cacheManager.set('assetList', assetList, 60 * 60 * 1000);
       return assetList;
     } catch (error) {
+      console.error(error);
       throw new BadGatewayException();
     }
   }
@@ -59,7 +60,6 @@ export class CloudinaryService {
     const cacheKey = `assets-${offset}`;
     const cachedAssets = await this.cacheManager.get<Asset[]>(cacheKey);
     if (cachedAssets) {
-      console.log('Using cached assets');
       return cachedAssets;
     }
 

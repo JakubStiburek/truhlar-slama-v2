@@ -43,7 +43,7 @@ export class CloudinaryService {
 
     try {
       const assetList = await this.cloudinary.search
-        .expression('folder:test')
+        .expression('folder:portfolio')
         .sort_by('uploaded_at', 'desc')
         .fields('asset_id')
         .execute();

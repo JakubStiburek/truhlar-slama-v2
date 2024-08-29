@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { v2 as cloudinary } from 'cloudinary';
-import { Asset, AssetList } from './cloudinary.types';
+import { Asset, AssetList, ResourceApiResponse } from './cloudinary.types';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
 
@@ -56,6 +56,38 @@ export class CloudinaryService {
     }
   }
 
+  async getAssetById(id: string): Promise<Asset> {
+    const cached = await this.cacheManager.get<Asset>(id);
+    if (cached) {
+      return cached;
+    }
+
+    try {
+      const { resources } = (await this.cloudinary.api.resources_by_asset_ids(
+        [id],
+        {
+          context: true,
+        },
+      )) as ResourceApiResponse;
+
+      const asset = {
+        secure_url: resources[0].secure_url,
+        width: resources[0].width,
+        height: resources[0].height,
+        context: {
+          caption: resources[0].context.custom.caption,
+        },
+      };
+
+      await this.cacheManager.set(id, asset, 60 * 60 * 1000);
+
+      return asset;
+    } catch (error) {
+      console.error(error);
+      throw new BadGatewayException();
+    }
+  }
+
   async getAssetsByIds(ids: string[], offset: number): Promise<Asset[]> {
     const cacheKey = `assets-${offset}`;
     const cachedAssets = await this.cacheManager.get<Asset[]>(cacheKey);
@@ -74,7 +106,7 @@ export class CloudinaryService {
         height: asset.height,
       }));
 
-      await this.cacheManager.set(cacheKey, assets);
+      await this.cacheManager.set(cacheKey, assets, 60 * 60 * 1000);
 
       return assets;
     } catch (error) {

@@ -16,3 +16,16 @@ export interface Asset {
     alt?: string;
   };
 }
+
+export interface ResourceApiResponse {
+  resources: {
+    secure_url: string;
+    width: number;
+    height: number;
+    context: {
+      custom: {
+        caption: string;
+      };
+    };
+  }[];
+}

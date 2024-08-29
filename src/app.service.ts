@@ -21,4 +21,8 @@ export class AppService {
       hasNextPage: assetList.resources.length > 10 * offset + 10,
     };
   }
+
+  async getAssetById(id: string) {
+    return await this.cloudinaryService.getAssetById(id);
+  }
 }

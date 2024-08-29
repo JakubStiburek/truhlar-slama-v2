@@ -2,14 +2,29 @@ import { Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 import * as process from 'node:process';
 import { formatSeconds } from './utils';
+import { ConfigService } from '@nestjs/config';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly configService: ConfigService,
+  ) {}
 
   @Get()
   @Render('index')
-  root() {}
+  async root() {
+    const homeImageAssetId = this.configService.get<string>(
+      'HOME_IMAGE_CLOUDINARY_ASSET_ID',
+    );
+    const homeImage = await this.appService.getAssetById(homeImageAssetId);
+    return {
+      homeImageUrl: homeImage.secure_url,
+      homeImageWidth: homeImage.width,
+      homeImageHeight: homeImage.height,
+      homeImageCaption: homeImage.context.caption,
+    };
+  }
 
   @Get('portfolio')
   @Render('portfolio')

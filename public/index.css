@@ -52,6 +52,10 @@ h1 {
     border-radius: 5px;
 }
 
+.home-caption {
+    text-align: justify;
+}
+
 .contacts a {
     color: black;
 }
@@ -86,6 +90,14 @@ h1 {
         font-size: large;
     }
 
+    h2 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
+    }
+
     .contacts {
         font-size: small;
     }
@@ -106,12 +118,21 @@ h1 {
         font-size: large;
     }
 
+    h2 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
+    }
+
+
     .contacts {
         font-size: small;
     }
 }
 
-@media screen and (min-width: 376px) and (max-width: 425px) {
+@media screen and (min-width: 376px) and (max-width: 956px) {
     .home-content {
         margin-top: 0.5rem;
         flex-direction: column;
@@ -124,6 +145,14 @@ h1 {
 
     h1 {
         font-size: large;
+    }
+
+    h2 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
     }
 
     .contacts {

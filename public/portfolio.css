@@ -58,7 +58,7 @@ h1 {
 }
 
 .assets-item img {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .page-control {

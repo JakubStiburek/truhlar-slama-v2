@@ -34,40 +34,38 @@
     </div>
   </nav>
 </header>
-<main>
-  <div class="page-control">
-    {{#if prevPage}}
-      <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
-    {{/if}}
-    {{#if nextPage}}
-      <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
-    {{/if}}
+<div class="page-control">
+  {{#if prevPage}}
+    <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
+  {{/if}}
+  {{#if nextPage}}
+    <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
+  {{/if}}
+</div>
+<div class="assets-row">
+  <div class="assets-column">
+    {{#each assetsLeft}}
+      <div class="assets-item">
+        <img src="{{this.secure_url}}" width="280" alt="example">
+      </div>
+    {{/each}}
   </div>
-  <div class="assets-row">
-    <div class="assets-column">
-      {{#each assetsLeft}}
-        <div class="assets-item">
-          <img src="{{this.secure_url}}" width="280" alt="example">
-        </div>
-      {{/each}}
-    </div>
-    <div class="assets-column">
-      {{#each assetsRight}}
-        <div class="assets-item">
-          <img src="{{this.secure_url}}" width="280" alt="example">
-        </div>
-      {{/each}}
-    </div>
+  <div class="assets-column">
+    {{#each assetsRight}}
+      <div class="assets-item">
+        <img src="{{this.secure_url}}" width="280" alt="example">
+      </div>
+    {{/each}}
   </div>
-  <div class="page-control">
-    {{#if prevPage}}
-      <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
-    {{/if}}
-    {{#if nextPage}}
-      <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
-    {{/if}}
-  </div>
-</main>
+</div>
+<div class="page-control">
+  {{#if prevPage}}
+    <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
+  {{/if}}
+  {{#if nextPage}}
+    <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
+  {{/if}}
+</div>
 <footer>
   <ul class="footer-list center">
     <li><a href="tel:608334824">+420 608 334 824</a></li>

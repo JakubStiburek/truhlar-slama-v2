@@ -80,6 +80,10 @@ h1 {
     text-align: center;
 }
 
+main {
+    flex-direction: column;
+}
+
 @media screen and (max-width: 640px) {
     .assets-row {
         width: 280px;

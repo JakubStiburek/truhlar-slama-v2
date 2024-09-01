@@ -57,7 +57,8 @@ h1 {
     gap: 0.5rem;
 }
 
-.assets-item {
+.assets-item img {
+    object-fit: cover;
 }
 
 .page-control {

@@ -1,7 +1,10 @@
-body {
+body, html {
     background-color: rgb(193, 182, 68);
     margin: 0;
     font-family: Montserrat, serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -13,7 +16,7 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-.header {
+nav {
     background-color: #a1612e;
     font-size: x-large;
     padding: 0.5rem;
@@ -37,7 +40,7 @@ h1 {
     border-bottom: 1px solid rgb(255, 245, 175);
 }
 
-.header a {
+nav a {
     color: rgb(255, 245, 175)
 }
 
@@ -47,9 +50,10 @@ h1 {
     padding: 0;
 }
 
-.home-content img {
+main img {
     border: 0.5rem solid rgb(255, 245, 175);
     border-radius: 5px;
+    height: max-content;
 }
 
 .home-caption {
@@ -60,10 +64,12 @@ h1 {
     color: black;
 }
 
-.home-content {
+main {
     display: flex;
     flex-direction: row;
     margin: 0.5rem;
+    flex: 1 0 auto;
+    height: max-content;
 }
 
 .flex-item {
@@ -75,14 +81,29 @@ h1 {
     width: max-content;
 }
 
+footer {
+    width: 100%;
+    background-color: #a1612e;
+    padding: 0.5rem 0;
+    flex-shrink: 0;
+}
+
+.footer-list {
+    list-style-type: none;
+}
+
+.footer-list a {
+    color: rgb(255, 245, 175);
+    font-size: small;
+}
+
 @media screen and (max-width: 320px) {
-    .home-content {
+   main {
         margin-top: 0.5rem;
         flex-direction: column;
     }
 
     .flex-item {
-        margin: auto;
         width: 280px;
     }
 
@@ -104,13 +125,12 @@ h1 {
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
-    .home-content {
+    main {
         margin-top: 0.5rem;
         flex-direction: column;
     }
 
     .flex-item {
-        margin: auto;
         width: 320px;
     }
 
@@ -133,13 +153,12 @@ h1 {
 }
 
 @media screen and (min-width: 376px) and (max-width: 956px) {
-    .home-content {
+    main {
         margin-top: 0.5rem;
         flex-direction: column;
     }
 
     .flex-item {
-        margin: auto;
         width: 360px;
     }
 
@@ -161,13 +180,13 @@ h1 {
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
-    .home-content {
+    main {
         margin-top: 0.5rem;
     }
 }
 
 @media screen and (min-width: 769px) {
-    .home-content {
+    main {
         margin-top: 0.5rem;
     }
 

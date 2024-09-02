@@ -16,7 +16,7 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-nav {
+header {
     background-color: #a1612e;
     font-size: x-large;
     padding: 0.5rem;
@@ -48,6 +48,12 @@ nav {
 
 .current-page {
     border-bottom: 1px solid rgb(255, 245, 175);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
 }
 
 nav a {

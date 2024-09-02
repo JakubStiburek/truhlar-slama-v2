@@ -86,10 +86,16 @@ footer {
     background-color: #a1612e;
     padding: 0.5rem 0;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-list {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
 }
 
 .footer-list a {

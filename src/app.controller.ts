@@ -1,14 +1,17 @@
-import { Controller, Get, Query, Render } from '@nestjs/common';
+import { Controller, Delete, Get, Inject, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 import * as process from 'node:process';
 import { formatSeconds } from './utils';
 import { ConfigService } from '@nestjs/config';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly configService: ConfigService,
+    @Inject(CACHE_MANAGER) private cacheManager: Cache,
   ) {}
 
   @Get()
@@ -43,6 +46,11 @@ export class AppController {
       nextPage: assetsWithPage.hasNextPage ? pageNumber + 1 : undefined,
       prevPage: pageNumber > 0 ? pageNumber - 1 : undefined,
     };
+  }
+
+  @Delete('portfolio/cache')
+  async getPortfolioCache() {
+    await this.cacheManager.reset();
   }
 
   @Get('health')

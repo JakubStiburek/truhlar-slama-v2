@@ -105,7 +105,7 @@ export class CloudinaryService {
         width: asset.width,
         height: asset.height,
         context: {
-          caption: asset.context.custom.caption,
+          caption: asset.context?.custom?.caption,
         },
       }));
 

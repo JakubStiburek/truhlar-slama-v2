@@ -22,9 +22,9 @@ export interface ResourceApiResponse {
     secure_url: string;
     width: number;
     height: number;
-    context: {
-      custom: {
-        caption: string;
+    context?: {
+      custom?: {
+        caption?: string;
       };
     };
   }[];

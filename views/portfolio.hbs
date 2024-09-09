@@ -51,7 +51,9 @@
     {{#each assetsLeft}}
       <div class="assets-item">
         <img src="{{this.secure_url}}" width="280" alt="{{this.context.caption}}" class="image">
-        <div class="overlay">{{this.context.caption}}</div>
+        {{#if this.context.caption}}
+          <div class="overlay">{{this.context.caption}}</div>
+        {{/if}}
       </div>
     {{/each}}
   </div>
@@ -59,7 +61,9 @@
     {{#each assetsRight}}
       <div class="assets-item">
         <img src="{{this.secure_url}}" width="280" alt="{{this.context.caption}}" class="image">
-        <div class="overlay">{{this.context.caption}}</div>
+        {{#if this.context.caption}}
+          <div class="overlay">{{this.context.caption}}</div>
+        {{/if}}
       </div>
     {{/each}}
   </div>

@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Inject, Query, Render } from '@nestjs/common';
+import { Controller, Get, Inject, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 import * as process from 'node:process';
 import { formatSeconds } from './utils';
@@ -48,9 +48,19 @@ export class AppController {
     };
   }
 
-  @Delete('portfolio/cache')
+  @Get('admin')
+  @Render('admin')
+  admin() {
+    return {
+      baseUrl: this.configService.get<string>('BASE_URL'),
+    };
+  }
+
+  @Get('cache')
+  @Render('success')
   async getPortfolioCache() {
     await this.cacheManager.reset();
+    return {};
   }
 
   @Get('health')

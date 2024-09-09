@@ -85,6 +85,38 @@ main {
     flex-direction: column;
 }
 
+.assets-item {
+    position: relative;
+    max-width: 280px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: small;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.assets-item:hover .overlay {
+    opacity: 1;
+}
+
 @media screen and (max-width: 640px) {
     .assets-row {
         width: 280px;

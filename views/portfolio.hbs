@@ -50,14 +50,16 @@
   <div class="assets-column">
     {{#each assetsLeft}}
       <div class="assets-item">
-        <img src="{{this.secure_url}}" width="280" alt="example">
+        <img src="{{this.secure_url}}" width="280" alt="{{this.context.caption}}" class="image">
+        <div class="overlay">{{this.context.caption}}</div>
       </div>
     {{/each}}
   </div>
   <div class="assets-column">
     {{#each assetsRight}}
       <div class="assets-item">
-        <img src="{{this.secure_url}}" width="280" alt="example">
+        <img src="{{this.secure_url}}" width="280" alt="{{this.context.caption}}" class="image">
+        <div class="overlay">{{this.context.caption}}</div>
       </div>
     {{/each}}
   </div>

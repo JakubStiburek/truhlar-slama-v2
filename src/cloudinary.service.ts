@@ -96,14 +96,17 @@ export class CloudinaryService {
     }
 
     try {
-      const rawAssets = await this.cloudinary.api.resources_by_asset_ids(ids, {
+      const rawAssets = (await this.cloudinary.api.resources_by_asset_ids(ids, {
         context: true,
-      });
+      })) as ResourceApiResponse;
 
       const assets = rawAssets.resources.map((asset) => ({
         secure_url: asset.secure_url,
         width: asset.width,
         height: asset.height,
+        context: {
+          caption: asset.context.custom.caption,
+        },
       }));
 
       await this.cacheManager.set(cacheKey, assets, 60 * 60 * 1000);

@@ -46,6 +46,7 @@ export class CloudinaryService {
         .expression('folder:portfolio')
         .sort_by('uploaded_at', 'desc')
         .fields('asset_id')
+        .max_results(1000)
         .execute();
 
       await this.cacheManager.set('assetList', assetList, 60 * 60 * 1000);

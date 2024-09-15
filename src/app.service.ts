@@ -5,7 +5,8 @@ import { CloudinaryService } from './cloudinary.service';
 export class AppService {
   constructor(private readonly cloudinaryService: CloudinaryService) {}
 
-  async getAssets(offset: number) {
+  async getAssets(pageNumber: number) {
+    const offset = pageNumber - 1;
     const assetList = await this.cloudinaryService.getAssetList();
     const currentPage = assetList.resources.slice(
       10 * offset,
@@ -19,6 +20,10 @@ export class AppService {
     return {
       assets,
       hasNextPage: assetList.resources.length > 10 * offset + 10,
+      pagination: {
+        current: pageNumber,
+        total: Math.floor(assetList.resources.length / 10),
+      },
     };
   }
 

@@ -33,18 +33,24 @@ export class AppController {
   @Render('portfolio')
   async portfolio(@Query('page') page = 1) {
     const pageNumber = Number(page);
-    const assetsWithPage = await this.appService.getAssets(pageNumber - 1);
+    const { assets, pagination } = await this.appService.getAssets(pageNumber);
     return {
-      assetsLeft: assetsWithPage.assets.slice(
-        0,
-        assetsWithPage.assets.length / 2,
-      ),
-      assetsRight: assetsWithPage.assets.slice(
-        assetsWithPage.assets.length / 2,
-        assetsWithPage.assets.length,
-      ),
-      nextPage: assetsWithPage.hasNextPage ? pageNumber + 1 : undefined,
-      prevPage: pageNumber > 0 ? pageNumber - 1 : undefined,
+      assetsLeft: assets.slice(0, assets.length / 2),
+      assetsRight: assets.slice(assets.length / 2, assets.length),
+      nextPage: pagination.total > pageNumber + 1 ? pageNumber + 1 : undefined,
+      prevPage: pageNumber > 2 ? pageNumber - 1 : undefined,
+      pagination: {
+        pages: Array.from({ length: pagination.total }, (_, i) => ({
+          number: i + 1,
+          current: pagination.current === i + 1,
+        })).slice(
+          pagination.current > 3 ? pagination.current - 3 : 0,
+          pagination.total >= pagination.current + 3
+            ? pagination.current + 2
+            : pagination.total,
+        ),
+        ...pagination,
+      },
     };
   }
 

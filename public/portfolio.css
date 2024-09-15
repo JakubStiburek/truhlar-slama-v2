@@ -66,7 +66,6 @@ h1 {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    width: 230px;
     margin: auto;
     padding: 1rem;
 }
@@ -74,11 +73,17 @@ h1 {
 .page-button {
     border: 1px solid #a1612e;
     background-color: #a1612e;
-    color:rgb(255, 245, 175);
+    color: rgb(255, 245, 175);
     border-radius: 5%;
-    padding: 0.25rem;
-    width: 100px;
+    padding: 0.2rem;
+    width: 30px;
     text-align: center;
+}
+
+.pagination-current {
+    background: rgb(255, 245, 175);
+    border: 1px solid rgb(255, 245, 175);
+    color: #a1612e;
 }
 
 main {
@@ -105,7 +110,7 @@ main {
     color: #f1f1f1;
     width: 100%;
     transition: .5s ease;
-    opacity:0;
+    opacity: 0;
     color: white;
     font-size: small;
     text-align: center;
@@ -120,6 +125,14 @@ main {
 @media screen and (max-width: 640px) {
     .assets-row {
         width: 280px;
+    }
+
+    .page-button {
+        width: 10px;
+    }
+
+    .page-button {
+        font-size: x-small;
     }
 }
 

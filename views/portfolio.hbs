@@ -39,12 +39,15 @@
   </nav>
 </header>
 <div class="page-control">
-  {{#if prevPage}}
-    <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
-  {{/if}}
-  {{#if nextPage}}
-    <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
-  {{/if}}
+  <a class="page-button" href="/portfolio?page=1"><<</a>
+  {{#each pagination.pages}}
+    {{#if this.current}}
+      <a class="page-button pagination-current" href="/portfolio?page={{this.number}}">{{this.number}}</a>
+    {{else}}
+      <a class="page-button" href="/portfolio?page={{this.number}}">{{this.number}}</a>
+    {{/if}}
+  {{/each}}
+  <a class="page-button" href="/portfolio?page={{pagination.total}}">>></a>
 </div>
 <div class="assets-row">
   <div class="assets-column">
@@ -69,12 +72,15 @@
   </div>
 </div>
 <div class="page-control">
-  {{#if prevPage}}
-    <a class="page-button" href="/portfolio?page={{prevPage}}">Předchozí</a>
-  {{/if}}
-  {{#if nextPage}}
-    <a class="page-button" href="/portfolio?page={{nextPage}}">Další</a>
-  {{/if}}
+  <a class="page-button" href="/portfolio?page=1"><<</a>
+  {{#each pagination.pages}}
+    {{#if this.current}}
+      <a class="page-button pagination-current" href="/portfolio?page={{this.number}}">{{this.number}}</a>
+    {{else}}
+      <a class="page-button" href="/portfolio?page={{this.number}}">{{this.number}}</a>
+    {{/if}}
+  {{/each}}
+  <a class="page-button" href="/portfolio?page={{pagination.total}}">>></a>
 </div>
 <footer>
   <ul class="footer-list">

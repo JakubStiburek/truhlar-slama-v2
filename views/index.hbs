@@ -20,7 +20,7 @@
 <body>
 <header>
   <div class="logo-container">
-    <img class="logo" src="logo.jpg" alt="Firemní logo" width="50">
+    <img class="logo" src="logo.png" alt="Firemní logo" width="50">
   </div>
   <span class="truhlar-slama">
       Truhlář Sláma
@@ -35,19 +35,30 @@
     </div>
   </nav>
 </header>
-<main class="center">
-  <img class="flex-item" src="{{homeImageUrl}}" width="{{homeImageWidth}}" alt="{{homeImageCaption}}">
-  <div class="flex-item">
-    <h1>Truhlář Ondřej Sláma</h1>
-    <p class="home-caption">{{homeImageCaption}}</p>
-    <h2>Kontakty</h2>
-    <ul class="contacts">
-      <li><a href="tel:608334824">+420 608 334 824</a></li>
-      <li><a
-        href="mailto:ondrej.slama@truhlarslama.cz">ondrej.slama@truhlarslama.cz</a></li>
-      <li><a href="https://www.instagram.com/slamuv_truhlarsky_koutek/">IG: @slamuv_truhlarsky_koutek</a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=61553955157538">FB: Truhlář Sláma</a></li>
-    </ul>
+<main>
+  <div class="section intro-section">
+    <img class="flex-item" src="{{homeImageUrl}}" width="{{homeImageWidth}}" alt="{{homeImageCaption}}">
+    <div class="flex-item">
+      <h1>Truhlář Ondřej Sláma</h1>
+      <p class="home-caption">{{homeImageCaption}}</p>
+      <h2>Kontakty</h2>
+      <ul class="contacts">
+        <li><a href="tel:608334824">+420 608 334 824</a></li>
+        <li><a
+          href="mailto:ondrej.slama@truhlarslama.cz">ondrej.slama@truhlarslama.cz</a></li>
+        <li><a href="https://www.instagram.com/slamuv_truhlarsky_koutek/">IG: @slamuv_truhlarsky_koutek</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61553955157538">FB: Truhlář Sláma</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">Ja a moje dilna</div>
+  <div class="section">Co vyrabim</div>
+  <div class="section last-section shadow">
+    <form>
+      <h1>Poptávkový formulář</h1>
+      <label for="name">Jméno a příjmení</label>
+      <input type="text" id="name" name="name">
+    </form>
   </div>
 </main>
 <footer>

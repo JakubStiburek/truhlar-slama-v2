@@ -1,5 +1,13 @@
+:root {
+    --primary: #643c1d;
+    --secondary: #1D4464;
+    --secondary-light: #234e77;
+    --secondary-transparent: #1D4464E5;
+    --text-light: #FFF5AF;
+}
+
 body, html {
-    background-color: rgb(193, 182, 68);
+    background: var(--secondary-light);
     margin: 0;
     font-family: Montserrat, serif;
     height: 100%;
@@ -17,13 +25,13 @@ h1 {
 }
 
 header {
-    background-color: #a1612e;
+    background-color: var(--primary);
     font-size: x-large;
     padding: 0.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: rgb(255, 245, 175);
+    color: var(--text-light);
 }
 
 .truhlar-slama {
@@ -32,7 +40,7 @@ header {
 
 .header-divider {
     height: 3rem;
-    border-left: 1px solid rgb(255, 245, 175);
+    border-left: 1px solid var(--text-light);
 }
 
 .logo-container {
@@ -47,7 +55,7 @@ header {
 }
 
 .current-page {
-    border-bottom: 1px solid rgb(255, 245, 175);
+    border-bottom: 1px solid var(--text-light);
 }
 
 nav {
@@ -57,7 +65,7 @@ nav {
 }
 
 nav a {
-    color: rgb(255, 245, 175)
+    color: var(--text-light)
 }
 
 .contacts {
@@ -67,8 +75,8 @@ nav a {
 }
 
 main img {
-    border: 0.5rem solid rgb(255, 245, 175);
-    border-radius: 5px;
+    /*border: 0.5rem solid var(--text-light;*/
+    /*border-radius: 5px;*/
     height: max-content;
 }
 
@@ -77,15 +85,22 @@ main img {
 }
 
 .contacts a {
-    color: black;
+    color: var(--text-light);
 }
 
 main {
     display: flex;
-    flex-direction: row;
-    margin: 0.5rem;
+    flex-direction: column;
     flex: 1 0 auto;
+    gap: 1rem;
     height: max-content;
+    align-items: center;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
 }
 
 .flex-item {
@@ -99,7 +114,7 @@ main {
 
 footer {
     width: 100%;
-    background-color: #a1612e;
+    background-color: var(--primary);
     padding: 0.5rem 0;
     flex-shrink: 0;
     display: flex;
@@ -115,7 +130,7 @@ footer {
 }
 
 .footer-list a {
-    color: rgb(255, 245, 175);
+    color: var(--text-light);
     font-size: small;
 }
 
@@ -135,7 +150,28 @@ footer {
 }
 
 .reset-cache a {
-    color: rgb(255, 245, 175);
+    color: var(--text-light);
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+.section {
+    width: 1000px;
+    min-height: 500px;
+    height: max-content;
+    padding: 3rem;
+    background: var(--secondary-transparent);
+    color: var(--text-light);
+}
+
+.last-section {
+    border-radius: 0 0 3rem 3rem;
+    margin-bottom: 1rem;
+    height: 800px;
 }
 
 @media screen and (max-width: 320px) {
@@ -227,10 +263,6 @@ footer {
 }
 
 @media screen and (min-width: 769px) {
-    main {
-        margin-top: 0.5rem;
-    }
-
     .flex-item {
         width: 450px;
     }

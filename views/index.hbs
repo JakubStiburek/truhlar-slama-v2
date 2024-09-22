@@ -1,63 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  {{> head}}
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
   <title>Truhlář Sláma</title>
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description"
-        content="Truhlář Ondřej Sláma. Řemeslná výroba ze dřeva - nábytek, zakázková výroba, unikátní kousky. Tel: 608334824, mail: ondrej.slama@truhlarslama.cz" />
-  <link rel="stylesheet" type="text/css" href="index.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <img class="logo" src="logo.jpg" alt="Firemní logo" width="50">
-  </div>
-  <span class="truhlar-slama">
-      Truhlář Sláma
-    </span>
-  <div class="header-divider"></div>
-  <nav>
-    <div class="current-page">
-      <a href="/">Domů</a>
-    </div>
+{{> header}}
+<main>
+  <div class="section intro-section last-section">
+    <img class="profile-image" src="{{profileImageUrl}}" alt="{{homeImageCaption}}">
     <div>
-      <a href="portfolio?page=1">Portfolio</a>
+      <h1>Truhlář Ondřej Sláma</h1>
+      <p class="profile-image-caption">{{profileImageCaption}}</p>
+      <h2>Kontakty</h2>
+      <ul class="contacts">
+        <li><a href="tel:608334824">+420 608 334 824</a></li>
+        <li><a
+          href="mailto:ondrej.slama@truhlarslama.cz">ondrej.slama@truhlarslama.cz</a></li>
+        <li><a href="https://www.instagram.com/slamuv_truhlarsky_koutek/">IG: @slamuv_truhlarsky_koutek</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61553955157538">FB: Truhlář Sláma</a></li>
+      </ul>
     </div>
-  </nav>
-</header>
-<main class="center">
-  <img class="flex-item" src="{{homeImageUrl}}" width="{{homeImageWidth}}" alt="{{homeImageCaption}}">
-  <div class="flex-item">
-    <h1>Truhlář Ondřej Sláma</h1>
-    <p class="home-caption">{{homeImageCaption}}</p>
-    <h2>Kontakty</h2>
-    <ul class="contacts">
-      <li><a href="tel:608334824">+420 608 334 824</a></li>
-      <li><a
-        href="mailto:ondrej.slama@truhlarslama.cz">ondrej.slama@truhlarslama.cz</a></li>
-      <li><a href="https://www.instagram.com/slamuv_truhlarsky_koutek/">IG: @slamuv_truhlarsky_koutek</a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=61553955157538">FB: Truhlář Sláma</a></li>
-    </ul>
   </div>
+<!--    <div class="section">Ja a moje dilna</div>-->
+<!--    <div class="section">Co vyrabim</div>-->
+<!--    <div class="section last-section shadow">-->
+<!--      <form>-->
+<!--        <h1>Poptávkový formulář</h1>-->
+<!--        <label for="name">Jméno a příjmení</label>-->
+<!--        <input type="text" id="name" name="name">-->
+<!--      </form>-->
+<!--    </div>-->
 </main>
-<footer>
-  <ul class="footer-list">
-    <li><a href="tel:608334824">+420 608 334 824</a></li>
-    <li><a
-      href="mailto:ondrej.slama@truhlarslama.cz">ondrej.slama@truhlarslama.cz</a></li>
-    <li><a href="https://www.instagram.com/slamuv_truhlarsky_koutek/">IG: @slamuv_truhlarsky_koutek</a></li>
-    <li><a href="https://www.facebook.com/profile.php?id=61553955157538">FB: Truhlář Sláma</a></li>
-  </ul>
-</footer>
+{{> footer}}
 </body>
 </html>

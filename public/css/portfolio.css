@@ -1,5 +1,4 @@
 body {
-    background-color: rgb(193, 182, 68);
     margin: 0;
     font-family: Montserrat, serif;
 }
@@ -14,7 +13,7 @@ h1 {
 }
 
 .header {
-    background-color: #a1612e;
+    background-color: var(--primary);
     font-size: x-large;
     padding: 0.5rem;
     display: flex;
@@ -71,8 +70,8 @@ h1 {
 }
 
 .page-button {
-    border: 1px solid #a1612e;
-    background-color: #a1612e;
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
     color: rgb(255, 245, 175);
     border-radius: 5%;
     padding: 0.2rem;
@@ -83,7 +82,7 @@ h1 {
 .pagination-current {
     background: rgb(255, 245, 175);
     border: 1px solid rgb(255, 245, 175);
-    color: #a1612e;
+    color: var(--primary);
 }
 
 main {

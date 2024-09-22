@@ -22,10 +22,8 @@ export class AppController {
     );
     const homeImage = await this.appService.getAssetById(homeImageAssetId);
     return {
-      homeImageUrl: homeImage.secure_url,
-      homeImageWidth: homeImage.width,
-      homeImageHeight: homeImage.height,
-      homeImageCaption: homeImage.context.caption,
+      profileImageUrl: homeImage.secure_url,
+      profileImageCaption: homeImage.context.caption,
     };
   }
 

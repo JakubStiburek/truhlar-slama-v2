@@ -18,23 +18,7 @@
     rel="stylesheet">
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <img class="logo" src="logo.png" alt="Firemní logo" width="50">
-  </div>
-  <span class="truhlar-slama">
-      Truhlář Sláma
-    </span>
-  <div class="header-divider"></div>
-  <nav>
-    <div class="current-page">
-      <a href="/">Domů</a>
-    </div>
-    <div>
-      <a href="portfolio?page=1">Portfolio</a>
-    </div>
-  </nav>
-</header>
+{{> header}}
 <main class="center">
   <div class="admin-container">
     <h1>Administrace</h1>
@@ -43,14 +27,6 @@
     </div>
   </div>
 </main>
-<footer>
-  <ul class="footer-list">
-    <li><a href="tel:608334824">+420 608 334 824</a></li>
-    <li><a
-      href="mailto:ondrej.slama@truhlarslama.cz">ondrej.slama@truhlarslama.cz</a></li>
-    <li><a href="https://www.instagram.com/slamuv_truhlarsky_koutek/">IG: @slamuv_truhlarsky_koutek</a></li>
-    <li><a href="https://www.facebook.com/profile.php?id=61553955157538">FB: Truhlář Sláma</a></li>
-  </ul>
-</footer>
+{{> footer}}
 </body>
 </html>

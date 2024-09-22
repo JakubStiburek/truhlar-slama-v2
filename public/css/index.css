@@ -122,6 +122,13 @@ footer {
     align-items: center;
 }
 
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
 .footer-list {
     list-style-type: none;
     margin: 0;

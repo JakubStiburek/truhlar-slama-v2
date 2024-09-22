@@ -1,20 +1,3 @@
-:root {
-    --primary: #643c1d;
-    --secondary: #1D4464;
-    --secondary-light: #234e77;
-    --secondary-transparent: #1D4464E5;
-    --text-light: #FFF5AF;
-}
-
-body, html {
-    background: var(--secondary-light);
-    margin: 0;
-    font-family: Montserrat, serif;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 a {
     text-decoration: none;
 }

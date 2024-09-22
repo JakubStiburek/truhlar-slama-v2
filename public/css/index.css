@@ -26,6 +26,10 @@ main img {
     text-align: justify;
 }
 
+.profile-image {
+    width: 450px;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -57,17 +61,15 @@ main {
 }
 
 .last-section {
-    border-radius: 0 0 3rem 3rem;
     margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
    main {
-        margin-top: 0.5rem;
         flex-direction: column;
     }
 
-    .intro-section-item {
+    .profile-image {
         width: 280px;
     }
 
@@ -86,45 +88,55 @@ main {
     .contacts {
         font-size: small;
     }
+
+    .profile-image {
+        width: 300px;
+    }
+
+    .section {
+        flex-direction: column;
+        width: 300px;
+        padding: 1rem;
+    }
 }
 
-@media screen and (min-width: 321px) and (max-width: 375px) {
+@media screen and (min-width: 380px) and (max-width: 460px) {
     main {
-        margin-top: 0.5rem;
         flex-direction: column;
     }
 
-    .intro-section-item {
+    h1 {
+        font-size: large;
+    }
+
+    h2 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
+    }
+
+    .contacts {
+        font-size: small;
+    }
+
+    .profile-image {
         width: 320px;
     }
 
-    h1 {
-        font-size: large;
-    }
-
-    h2 {
-        font-size: medium;
-    }
-
-    p {
-        font-size: small;
-    }
-
-    .contacts {
-        font-size: small;
+    .section {
+        flex-direction: column;
+        width: 320px;
+        padding: 1rem;
     }
 }
 
-@media screen and (min-width: 376px) and (max-width: 956px) {
+@media screen and (min-width: 461px) and (max-width: 600px) {
     main {
-        margin-top: 0.5rem;
         flex-direction: column;
     }
 
-    .intro-section-item {
-        width: 360px;
-    }
-
     h1 {
         font-size: large;
     }
@@ -140,18 +152,21 @@ main {
     .contacts {
         font-size: small;
     }
-}
 
-@media screen and (min-width: 426px) and (max-width: 768px) {
-    main {
-        margin-top: 0.5rem;
+    .profile-image {
+        width: 360px;
+    }
+
+    .section {
+        flex-direction: column;
+        width: 360px;
+        padding: 2rem;
     }
 }
 
-@media screen and (min-width: 769px) {
-    .intro-section-item {
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+    .section {
+        flex-direction: column;
         width: 450px;
     }
-
-
 }

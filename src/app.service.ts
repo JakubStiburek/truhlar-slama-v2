@@ -1,9 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CloudinaryService } from './cloudinary.service';
+import { MailService } from './mail.service';
+import { InquiryDto } from './dto/inquiry.dto';
+import { RegionsMap } from './regions.map';
 
 @Injectable()
 export class AppService {
-  constructor(private readonly cloudinaryService: CloudinaryService) {}
+  private readonly logger = new Logger(AppService.name);
+
+  constructor(
+    private readonly cloudinaryService: CloudinaryService,
+    private readonly mailService: MailService,
+  ) {}
 
   async getAssets(pageNumber: number) {
     const offset = pageNumber - 1;
@@ -29,5 +37,20 @@ export class AppService {
 
   async getAssetById(id: string) {
     return await this.cloudinaryService.getAssetById(id);
+  }
+
+  async processInquiry(inquiry: InquiryDto) {
+    try {
+      const data = {
+        to: 'ondrej.slama@truhlarslama.cz',
+        from: 'poptavky@truhlarslama.cz',
+        subject: `${inquiry.fname} ${inquiry.lname} - Poptávka z webového formuláře`,
+        text: `Zákazník: ${inquiry.fname} ${inquiry.lname}. Tel: ${inquiry.phone}. Email: ${inquiry.email || '(není)'} Kraj: ${RegionsMap.get(Number(inquiry.region))}. Poptávka: ${inquiry.inquiry}`,
+      };
+      await this.mailService.sendEmail(data);
+    } catch (e) {
+      this.logger.log(inquiry);
+      this.logger.error(e);
+    }
   }
 }

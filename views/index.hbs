@@ -8,7 +8,7 @@
 <body>
 {{> header}}
 <main>
-  <div class="section intro-section last-section">
+  <div class="section intro-section">
     <img class="profile-image" src="{{profileImageUrl}}" alt="{{homeImageCaption}}">
     <div>
       <h1>Truhlář Ondřej Sláma</h1>
@@ -23,15 +23,94 @@
       </ul>
     </div>
   </div>
-<!--    <div class="section">Ja a moje dilna</div>-->
-<!--    <div class="section">Co vyrabim</div>-->
-<!--    <div class="section last-section shadow">-->
-<!--      <form>-->
-<!--        <h1>Poptávkový formulář</h1>-->
-<!--        <label for="name">Jméno a příjmení</label>-->
-<!--        <input type="text" id="name" name="name">-->
-<!--      </form>-->
-<!--    </div>-->
+  <!--    <div class="section">Ja a moje dilna</div>-->
+  <!--    <div class="section">Co vyrabim</div>-->
+  <div class="section last-section">
+    <h2>Poptávkový formulář</h2>
+    {{#unless inquiryAccepted}}
+      <form class="inquiry-form" action="/">
+        <fieldset>
+          <legend>Poptávkový formulář</legend>
+          <div class="inquiry-form-section">
+            <div class="inquiry-form-item">
+              <label for="fname">Jméno *</label>
+              <div>
+                <input id="fname" name="fname" type="text" placeholder="Jana" required value="{{inquiryForm.fname}}">
+              </div>
+            </div>
+            <div class="inquiry-form-item">
+              <label for="lname">Příjmení *</label>
+              <div>
+                <input id="lname" name="lname" type="text" placeholder="Nováková" size="25" required
+                       value="{{inquiryForm.lname}}">
+              </div>
+            </div>
+          </div>
+          <div class="inquiry-form-section">
+            <div class="inquiry-form-item">
+              <label for="phone">Telefonní číslo *</label>
+              <div>
+                <input id="phone" name="phone" type="tel" placeholder="777666555" required
+                       value="{{inquiryForm.phone}}">
+              </div>
+            </div>
+            <div class="inquiry-form-item">
+              <label for="email">Email</label>
+              <div>
+                <input id="email" name="email" type="email" placeholder="jana.novakova@email.cz" size="25"
+                       value="{{inquiryForm.email}}">
+              </div>
+            </div>
+            <div class="inquiry-form-item">
+              <label for="region">Kraj</label>
+              <div>
+                <select id="region" name="region">
+                  <option value="0">Hlavní město Praha</option>
+                  <option value="1">Středočeský kraj</option>
+                  <option value="2">Jihočeský kraj</option>
+                  <option value="3">Plzeňský kraj</option>
+                  <option value="4">Karlovarský kraj</option>
+                  <option value="5">Ústecký kraj</option>
+                  <option value="6">Liberecký kraj</option>
+                  <option value="7">Královéhradecký kraj</option>
+                  <option value="8">Pardubický kraj</option>
+                  <option value="9">Kraj Vysočina</option>
+                  <option value="10">Jihomoravský kraj</option>
+                  <option value="11">Zlínský kraj</option>
+                  <option value="12">Olomoucký kraj</option>
+                  <option value="13">Moravskoslezský kraj</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="inquiry-form-item">
+            <label for="inquiry">Poptávka *</label>
+            <div>
+            <textarea id="inquiry"
+                      name="inquiry" rows="10" placeholder="Dobrý den, ráda bych s vámi probrala výrobu..."
+                      required>{{inquiryForm.inquiry}}</textarea>
+            </div>
+          </div>
+          <p class="inquiry-form-note">Políčka označená (*) jsou povinná.</p>
+          <button id="submit" name="submit" type="submit" class="submit">Odeslat</button>
+        </fieldset>
+      </form>
+    {{/unless}}
+    {{#if invalidFormData}}
+      <div class="inquiry-form-processed-with-error">
+        <p>Oops. Zdá se, že jste do formuláře vložili špatná data. Zkuste to ještě jednou.</p>
+      </div>
+    {{/if}}
+    {{#unless invalidFormData}}
+      {{#if inquiryAccepted}}
+        <div class="inquiry-form-processed">
+          <img src="checkmark.svg" alt="hotovo">
+          <p>Děkuji za Vaši důvěru. Brzy se Vám ozvu.</p>
+          <a href="/">Zadat novou poptávku</a>
+        </div>
+      {{/if}}
+    {{/unless}}
+  </div>
 </main>
 {{> footer}}
 </body>

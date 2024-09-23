@@ -4,6 +4,7 @@
     --secondary-light: #234e77;
     --secondary-transparent: #1D4464E5;
     --text-light: #FFF5AF;
+    --error: red;
 }
 
 body, html {

@@ -3,6 +3,7 @@ import {
   Inject,
   Injectable,
   InternalServerErrorException,
+  Logger,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { v2 as cloudinary } from 'cloudinary';
@@ -15,6 +16,7 @@ export class CloudinaryService {
   private readonly secret: string;
   private readonly name: string;
   private readonly key: string;
+  private readonly logger = new Logger(CloudinaryService.name);
   private cloudinary = cloudinary;
 
   constructor(
@@ -52,7 +54,7 @@ export class CloudinaryService {
       await this.cacheManager.set('assetList', assetList, 60 * 60 * 1000);
       return assetList;
     } catch (error) {
-      console.error(error);
+      this.logger.error(error);
       throw new BadGatewayException();
     }
   }
@@ -84,7 +86,7 @@ export class CloudinaryService {
 
       return asset;
     } catch (error) {
-      console.error(error);
+      this.logger.error(error);
       throw new BadGatewayException();
     }
   }
@@ -114,7 +116,7 @@ export class CloudinaryService {
 
       return assets;
     } catch (error) {
-      console.error(error);
+      this.logger.error(error);
       throw new BadGatewayException();
     }
   }

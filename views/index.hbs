@@ -35,14 +35,14 @@
             <div class="inquiry-form-item">
               <label for="fname">Jméno *</label>
               <div>
-                <input id="fname" name="fname" type="text" placeholder="Jana" required>
-
+                <input id="fname" name="fname" type="text" placeholder="Jana" required value="{{inquiryForm.fname}}">
               </div>
             </div>
             <div class="inquiry-form-item">
               <label for="lname">Příjmení *</label>
               <div>
-                <input id="lname" name="lname" type="text" placeholder="Nováková" size="25" required>
+                <input id="lname" name="lname" type="text" placeholder="Nováková" size="25" required
+                       value="{{inquiryForm.lname}}">
               </div>
             </div>
           </div>
@@ -50,13 +50,15 @@
             <div class="inquiry-form-item">
               <label for="phone">Telefonní číslo *</label>
               <div>
-                <input id="phone" name="phone" type="tel" placeholder="777666555" required>
+                <input id="phone" name="phone" type="tel" placeholder="777666555" required
+                       value="{{inquiryForm.phone}}">
               </div>
             </div>
             <div class="inquiry-form-item">
               <label for="email">Email</label>
               <div>
-                <input id="email" name="email" type="email" placeholder="jana.novakova@email.cz" size="25">
+                <input id="email" name="email" type="email" placeholder="jana.novakova@email.cz" size="25"
+                       value="{{inquiryForm.email}}">
               </div>
             </div>
             <div class="inquiry-form-item">
@@ -85,8 +87,8 @@
             <label for="inquiry">Poptávka *</label>
             <div>
             <textarea id="inquiry"
-                      name="inquiry" cols="100" rows="10" placeholder="Dobrý den, ráda bych s vámi probrala výrobu..."
-                      required></textarea>
+                      name="inquiry" rows="10" placeholder="Dobrý den, ráda bych s vámi probrala výrobu..."
+                      required>{{inquiryForm.inquiry}}</textarea>
             </div>
           </div>
           <p class="inquiry-form-note">Políčka označená (*) jsou povinná.</p>
@@ -94,12 +96,19 @@
         </fieldset>
       </form>
     {{/unless}}
-    {{#if inquiryAccepted}}
-      <div class="inquiry-form-accepted">
-        <img src="checkmark.svg" alt="hotovo">
-        <p>Děkuji za Vaši důvěru. Brzy se Vám ozvu.</p>
+    {{#if invalidFormData}}
+      <div class="inquiry-form-processed-with-error">
+        <p>Oops. Zdá se, že jste do formuláře vložili špatná data. Zkuste to ještě jednou.</p>
       </div>
     {{/if}}
+    {{#unless invalidFormData}}
+      {{#if inquiryAccepted}}
+        <div class="inquiry-form-processed">
+          <img src="checkmark.svg" alt="hotovo">
+          <p>Děkuji za Vaši důvěru. Brzy se Vám ozvu.</p>
+        </div>
+      {{/if}}
+    {{/unless}}
   </div>
 </main>
 {{> footer}}

@@ -1,0 +1,16 @@
+export const RegionsMap = new Map([
+  [0, 'Hlavní město Praha'],
+  [1, 'Středočeský kraj'],
+  [2, 'Jihočeský kraj'],
+  [3, 'Plzeňský kraj'],
+  [4, 'Karlovarský kraj'],
+  [5, 'Ústecký kraj'],
+  [6, 'Liberecký kraj'],
+  [7, 'Královéhradecký kraj'],
+  [8, 'Pardubický kraj'],
+  [9, 'Kraj Vysočina'],
+  [10, 'Jihomoravský kraj'],
+  [11, 'Zlínský kraj'],
+  [12, 'Olomoucký kraj'],
+  [13, 'Moravskoslezský kraj'],
+]);

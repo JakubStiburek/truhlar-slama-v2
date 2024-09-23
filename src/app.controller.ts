@@ -5,6 +5,7 @@ import { formatSeconds } from './utils';
 import { ConfigService } from '@nestjs/config';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
+import { InquiryDto } from './dto/inquiry.dto';
 
 @Controller()
 export class AppController {
@@ -16,7 +17,8 @@ export class AppController {
 
   @Get()
   @Render('index')
-  async root() {
+  async root(@Query() query: InquiryDto) {
+    const hasInquiry = Object.keys(query).length > 0;
     const homeImageAssetId = this.configService.get<string>(
       'HOME_IMAGE_CLOUDINARY_ASSET_ID',
     );
@@ -24,6 +26,7 @@ export class AppController {
     return {
       profileImageUrl: homeImage.secure_url,
       profileImageCaption: homeImage.context.caption,
+      inquiryAccepted: hasInquiry,
     };
   }
 

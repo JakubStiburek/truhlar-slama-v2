@@ -64,9 +64,11 @@ main {
     margin-bottom: 1rem;
 }
 
+/*inquiry form - start*/
 .inquiry-form-section {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -142,6 +144,7 @@ input:focus, textarea:focus, select:focus {
     text-align: center;
     width: max-content;
 }
+/*inquiry form - end*/
 
 @media screen and (max-width: 380px) {
    main {
@@ -177,6 +180,10 @@ input:focus, textarea:focus, select:focus {
         width: 300px;
         padding: 1rem;
     }
+
+    textarea {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 380px) and (max-width: 460px) {
@@ -208,6 +215,18 @@ input:focus, textarea:focus, select:focus {
         flex-direction: column;
         width: 320px;
         padding: 1rem;
+    }
+
+    textarea {
+        width: 95%;
+    }
+
+    input {
+        width: 304px;
+    }
+
+    select {
+        width: 320px;
     }
 }
 
@@ -241,11 +260,23 @@ input:focus, textarea:focus, select:focus {
         width: 360px;
         padding: 2rem;
     }
+
+    textarea {
+        width: 100%;
+    }
+
+    #region {
+        width: 155px;
+    }
 }
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
     .section {
         flex-direction: column;
         width: 450px;
+    }
+
+    textarea {
+        width: 100%;
     }
 }

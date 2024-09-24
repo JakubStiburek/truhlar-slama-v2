@@ -224,7 +224,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .reviews-section {
-        height: 1040px;
+        height: max-content;
     }
 }
 
@@ -281,7 +281,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .reviews-section {
-        height: 1100px;
+        height: max-content;
     }
 }
 
@@ -334,7 +334,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .reviews-section {
-        height: 1220px;
+        height: max-content;
     }
 }
 
@@ -350,6 +350,6 @@ input:focus, textarea:focus, select:focus {
     }
 
     .reviews-section {
-        height: 1500px;
+        height: max-content;
     }
 }

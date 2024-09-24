@@ -37,21 +37,21 @@ export class CloudinaryService {
     });
   }
 
-  async getAssetList(): Promise<AssetList> {
-    const cachedAssetList = await this.cacheManager.get<AssetList>('assetList');
+  async getAssetList(folder: string): Promise<AssetList> {
+    const cachedAssetList = await this.cacheManager.get<AssetList>(folder);
     if (cachedAssetList) {
       return cachedAssetList;
     }
 
     try {
       const assetList = await this.cloudinary.search
-        .expression('folder:portfolio')
+        .expression(`folder:${folder}`)
         .sort_by('uploaded_at', 'desc')
         .fields('asset_id')
         .max_results(1000)
         .execute();
 
-      await this.cacheManager.set('assetList', assetList, 60 * 60 * 1000);
+      await this.cacheManager.set(folder, assetList, 60 * 60 * 1000);
       return assetList;
     } catch (error) {
       this.logger.error(error);
@@ -91,8 +91,12 @@ export class CloudinaryService {
     }
   }
 
-  async getAssetsByIds(ids: string[], offset: number): Promise<Asset[]> {
-    const cacheKey = `assets-${offset}`;
+  async getAssetsByIds(
+    ids: string[],
+    offset: number,
+    cachePrefix: string,
+  ): Promise<Asset[]> {
+    const cacheKey = `${cachePrefix}-assets-${offset}`;
     const cachedAssets = await this.cacheManager.get<Asset[]>(cacheKey);
     if (cachedAssets) {
       return cachedAssets;
@@ -109,6 +113,7 @@ export class CloudinaryService {
         height: asset.height,
         context: {
           caption: asset.context?.custom?.caption,
+          url: asset.context?.custom?.url,
         },
       }));
 

@@ -13,9 +13,9 @@ export class AppService {
     private readonly mailService: MailService,
   ) {}
 
-  async getAssets(pageNumber: number) {
+  async getPortfolioAssets(pageNumber: number) {
     const offset = pageNumber - 1;
-    const assetList = await this.cloudinaryService.getAssetList();
+    const assetList = await this.cloudinaryService.getAssetList('portfolio');
     const currentPage = assetList.resources.slice(
       10 * offset,
       10 * offset + 10,
@@ -23,6 +23,7 @@ export class AppService {
     const assets = await this.cloudinaryService.getAssetsByIds(
       currentPage.map((asset) => asset.asset_id),
       offset,
+      'portfolio',
     );
 
     return {
@@ -33,6 +34,15 @@ export class AppService {
         total: Math.floor(assetList.resources.length / 10),
       },
     };
+  }
+
+  async getReviewsAssets() {
+    const assetList = await this.cloudinaryService.getAssetList('reviews');
+    return this.cloudinaryService.getAssetsByIds(
+      assetList.resources.map((r) => r.asset_id),
+      0,
+      'reviews',
+    );
   }
 
   async getAssetById(id: string) {

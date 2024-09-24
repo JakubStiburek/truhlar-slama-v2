@@ -25,7 +25,7 @@
   </div>
   <!--    <div class="section">Ja a moje dilna</div>-->
   <!--    <div class="section">Co vyrabim</div>-->
-  <div class="section last-section">
+  <div class="section">
     <h2>Poptávkový formulář</h2>
     {{#unless inquiryAccepted}}
       <form class="inquiry-form" action="/">
@@ -110,6 +110,21 @@
         </div>
       {{/if}}
     {{/unless}}
+  </div>
+  <div class="section reviews-section">
+    {{#each reviews}}
+      <div class="review">
+        <a href="{{this.reviewUrl}}">
+          <img src="{{this.imageUrl}}" alt="review" class="review" loading="lazy">
+        </a>
+      </div>
+    {{/each}}
+  </div>
+  <div class="section last-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.5583157505157!2d13.388691377868644!3d49.26581707194645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ad5007b7b008d%3A0x17aecbcd22da5ffb!2zU2zDoW3Fr3YgdHJ1aGzDocWZc2vDvSBrb3V0ZWs!5e0!3m2!1scs!2scz!4v1727170956515!5m2!1scs!2scz"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
   </div>
 </main>
 {{> footer}}

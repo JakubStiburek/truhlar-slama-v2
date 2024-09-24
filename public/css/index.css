@@ -163,7 +163,7 @@ input:focus, textarea:focus, select:focus {
     height: 500px;
 }
 
-.review img {
+.review {
     width: 450px;
 }
 
@@ -219,7 +219,7 @@ input:focus, textarea:focus, select:focus {
         height: 200px;
     }
 
-    .review img {
+    .review {
         width: 300px;
     }
 
@@ -276,7 +276,7 @@ input:focus, textarea:focus, select:focus {
         height: 220px;
     }
 
-    .review img {
+    .review {
         width: 320px;
     }
 
@@ -329,7 +329,7 @@ input:focus, textarea:focus, select:focus {
         height: 250px
     }
 
-    .review img {
+    .review {
         width: 360px;
     }
 

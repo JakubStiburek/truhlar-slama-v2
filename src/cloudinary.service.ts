@@ -91,8 +91,12 @@ export class CloudinaryService {
     }
   }
 
-  async getAssetsByIds(ids: string[], offset: number): Promise<Asset[]> {
-    const cacheKey = `assets-${offset}`;
+  async getAssetsByIds(
+    ids: string[],
+    offset: number,
+    cachePrefix: string,
+  ): Promise<Asset[]> {
+    const cacheKey = `${cachePrefix}-assets-${offset}`;
     const cachedAssets = await this.cacheManager.get<Asset[]>(cacheKey);
     if (cachedAssets) {
       return cachedAssets;

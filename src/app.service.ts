@@ -23,6 +23,7 @@ export class AppService {
     const assets = await this.cloudinaryService.getAssetsByIds(
       currentPage.map((asset) => asset.asset_id),
       offset,
+      'portfolio',
     );
 
     return {
@@ -40,6 +41,7 @@ export class AppService {
     return this.cloudinaryService.getAssetsByIds(
       assetList.resources.map((r) => r.asset_id),
       0,
+      'reviews',
     );
   }
 

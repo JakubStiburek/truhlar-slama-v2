@@ -38,7 +38,7 @@ export class CloudinaryService {
   }
 
   async getAssetList(folder: string): Promise<AssetList> {
-    const cachedAssetList = await this.cacheManager.get<AssetList>('assetList');
+    const cachedAssetList = await this.cacheManager.get<AssetList>(folder);
     if (cachedAssetList) {
       return cachedAssetList;
     }

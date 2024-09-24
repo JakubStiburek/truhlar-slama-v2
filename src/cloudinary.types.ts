@@ -14,6 +14,7 @@ export interface Asset {
   context?: {
     caption?: string;
     alt?: string;
+    url?: string;
   };
 }
 
@@ -25,6 +26,7 @@ export interface ResourceApiResponse {
     context?: {
       custom?: {
         caption?: string;
+        url?: string;
       };
     };
   }[];

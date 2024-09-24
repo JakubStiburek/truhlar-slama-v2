@@ -111,6 +111,15 @@
       {{/if}}
     {{/unless}}
   </div>
+  <div class="section reviews-section">
+    {{#each reviews}}
+      <div class="review">
+        <a href="{{this.reviewUrl}}">
+          <img src="{{this.imageUrl}}" alt="review">
+        </a>
+      </div>
+    {{/each}}
+  </div>
   <div class="section last-section">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.5231355514507!2d13.423628777872304!3d49.41792306116602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470adb41f6ea7a5b%3A0x3f2b0cdf21e06a57!2zVHJ1aGzDocWZIFNsw6FtYQ!5e0!3m2!1scs!2scz!4v1727165367990!5m2!1scs!2scz"

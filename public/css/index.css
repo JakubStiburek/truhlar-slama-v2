@@ -163,6 +163,18 @@ input:focus, textarea:focus, select:focus {
     height: 500px;
 }
 
+.review img {
+    width: 450px;
+}
+
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    height: 890px;
+}
+
 @media screen and (max-width: 380px) {
    main {
         flex-direction: column;
@@ -205,6 +217,14 @@ input:focus, textarea:focus, select:focus {
     .map {
         width: 300px;
         height: 200px;
+    }
+
+    .review img {
+        width: 300px;
+    }
+
+    .reviews-section {
+        height: 1040px;
     }
 }
 
@@ -255,6 +275,14 @@ input:focus, textarea:focus, select:focus {
         width: 320px;
         height: 220px;
     }
+
+    .review img {
+        width: 320px;
+    }
+
+    .reviews-section {
+        height: 1100px;
+    }
 }
 
 @media screen and (min-width: 461px) and (max-width: 600px) {
@@ -300,6 +328,14 @@ input:focus, textarea:focus, select:focus {
         width: 360px;
         height: 250px
     }
+
+    .review img {
+        width: 360px;
+    }
+
+    .reviews-section {
+        height: 1220px;
+    }
 }
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
@@ -311,5 +347,9 @@ input:focus, textarea:focus, select:focus {
     .map {
         width: 450px;
         height: 300px;
+    }
+
+    .reviews-section {
+        height: 1500px;
     }
 }

@@ -24,11 +24,18 @@ export class AppController {
       'HOME_IMAGE_CLOUDINARY_ASSET_ID',
     );
     const homeImage = await this.appService.getAssetById(homeImageAssetId);
+    const reviewsAssets = await this.appService.getReviewsAssets();
+    const reviews = reviewsAssets.map((r) => ({
+      imageUrl: r.secure_url,
+      reviewUrl: r.context.url,
+    }));
+
     if (!hasInquiry) {
       return {
         profileImageUrl: homeImage.secure_url,
         profileImageCaption: homeImage.context.caption,
         inquiryAccepted: false,
+        reviews,
       };
     }
 
@@ -53,6 +60,7 @@ export class AppController {
         inquiryForm: {
           ...query,
         },
+        reviews,
       };
     }
 
@@ -67,6 +75,7 @@ export class AppController {
       inquiryForm: {
         ...query,
       },
+      reviews,
     };
   }
 
@@ -74,7 +83,8 @@ export class AppController {
   @Render('portfolio')
   async portfolio(@Query('page') page = 1) {
     const pageNumber = Number(page);
-    const { assets, pagination } = await this.appService.getAssets(pageNumber);
+    const { assets, pagination } =
+      await this.appService.getPortfolioAssets(pageNumber);
     return {
       assetsLeft: assets.slice(0, assets.length / 2),
       assetsRight: assets.slice(assets.length / 2, assets.length),

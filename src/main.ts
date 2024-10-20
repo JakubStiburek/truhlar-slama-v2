@@ -29,7 +29,27 @@ async function bootstrap() {
       '</footer>',
   );
   hbs.registerPartial(
-    'header',
+    'header-index',
+    '<header>\n' +
+      '  <div class="logo-container">\n' +
+      '    <img class="logo" src="logo.png" alt="Firemní logo" width="50">\n' +
+      '  </div>\n' +
+      '  <span class="truhlar-slama">\n' +
+      '      Truhlář Sláma\n' +
+      '    </span>\n' +
+      '  <div class="header-divider"></div>\n' +
+      '  <nav>\n' +
+      '    <div class="current-page"">\n' +
+      '      <a href="/">Domů</a>\n' +
+      '    </div>\n' +
+      '    <div>\n' +
+      '      <a href="portfolio?page=1">Portfolio</a>\n' +
+      '    </div>\n' +
+      '  </nav>\n' +
+      '</header>',
+  );
+  hbs.registerPartial(
+    'header-portfolio',
     '<header>\n' +
       '  <div class="logo-container">\n' +
       '    <img class="logo" src="logo.png" alt="Firemní logo" width="50">\n' +
@@ -42,7 +62,7 @@ async function bootstrap() {
       '    <div>\n' +
       '      <a href="/">Domů</a>\n' +
       '    </div>\n' +
-      '    <div>\n' +
+      '    <div class="current-page"">\n' +
       '      <a href="portfolio?page=1">Portfolio</a>\n' +
       '    </div>\n' +
       '  </nav>\n' +

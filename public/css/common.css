@@ -50,11 +50,22 @@ header {
 nav {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 2rem;
+    margin-left: 1rem;
 }
 
 nav a {
-    color: var(--text-light)
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+nav a:hover {
+    border-bottom: 1px solid var(--text-light);
+    text-decoration: none;
+}
+
+.current-page {
+    border-bottom: 1px solid var(--text-light);
 }
 
 .center {

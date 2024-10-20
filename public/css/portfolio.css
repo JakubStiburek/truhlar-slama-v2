@@ -32,10 +32,6 @@ h1 {
     object-fit: cover;
 }
 
-.current-page {
-    border-bottom: 1px solid rgb(255, 245, 175);
-}
-
 .header a {
     color: rgb(255, 245, 175)
 }
